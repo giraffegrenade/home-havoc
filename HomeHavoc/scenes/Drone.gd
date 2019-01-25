@@ -18,5 +18,8 @@ func _physics_process(delta):
 		$Sprite.flip_h = true
 	elif Input.is_action_pressed("ui_up"):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
+	
+	position.x = clamp(position.x, 0, screensize.x)
+	position.y = clamp(position.y, 0, screensize.y)
 		
 	velocity = move_and_slide(velocity, UP)
