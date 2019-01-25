@@ -12,6 +12,12 @@ var velocity = Vector2()
 
 func _ready():
 	screensize = get_viewport().size
+	if player_num == 1:
+		$P1.show()
+		$P2.hide()
+	else:
+		$P2.show()
+		$P1.hide()
 
 func _physics_process(delta):
 	velocity.y += GRAVITY
@@ -34,10 +40,8 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed(right_input):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
-		$Sprite.flip_h = false
 	elif Input.is_action_pressed(left_input):
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
-		$Sprite.flip_h = true
 	elif Input.is_action_pressed(up_input):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
 	
