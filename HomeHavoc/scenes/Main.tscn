@@ -16,7 +16,7 @@ extents = Vector2( 512.094, 25.0112 )
 scale = Vector2( 1.02378, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 500, 575 )
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="P1" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -46,5 +46,3 @@ bounce = 0.0
 
 position = Vector2( 512, 574.44 )
 shape = SubResource( 1 )
-
-
