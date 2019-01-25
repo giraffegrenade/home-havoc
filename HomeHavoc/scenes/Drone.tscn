@@ -4,10 +4,10 @@
 [ext_resource path="res://art/P1.png" type="Texture" id=2]
 [ext_resource path="res://art/P2.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 38.9226, 20.7833 )
+radius = 17.684
 
 [node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
@@ -37,5 +37,6 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 0.0489502 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 

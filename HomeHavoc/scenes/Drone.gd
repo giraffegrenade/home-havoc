@@ -45,7 +45,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed(up_input):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
 	
-	if position.y >= screensize.y:
+	if position.y >= screensize.y - 70:
 		velocity.y = -5
 	if position.y <= 0:
 		velocity.y = 5
@@ -55,6 +55,6 @@ func _physics_process(delta):
 		velocity.x = 5
 	
 	position.x = clamp(position.x, 0, screensize.x)
-	position.y = clamp(position.y, 0, screensize.y)
+	position.y = clamp(position.y, 0, screensize.y - 70)
 	
 	velocity = move_and_slide(velocity, UP)
