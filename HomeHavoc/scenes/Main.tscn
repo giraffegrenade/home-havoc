@@ -3,14 +3,14 @@
 [ext_resource path="res://art/bottom.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=2]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 1.02378, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 500, 575 )
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="P1" parent="." index="1" instance=ExtResource( 2 )]
 
