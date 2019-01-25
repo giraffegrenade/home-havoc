@@ -7,3 +7,7 @@ func _on_StartButton_pressed():
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+func _on_OptionsButton_pressed():
+	get_tree().change_scene("res://scenes/OptionsMenu.tscn")
