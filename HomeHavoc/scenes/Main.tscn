@@ -1,5 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node" type="Node"]
+[ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=1]
+
+[node name="Node" type="Node" index="0"]
+
+[node name="P1" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 162, 200 )
+player_num = 1
+
+[node name="P2" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 803, 209 )
+player_num = 2
 
 
