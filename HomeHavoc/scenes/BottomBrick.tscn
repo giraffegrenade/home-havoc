@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/BottomBrick.gd" type="Script" id=1]
 [ext_resource path="res://art/E1_32x32.png" type="Texture" id=2]
@@ -8,12 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.214, 16.0665 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 47.2549, 47.9649 )
-
-[node name="RigidBody2D" type="RigidBody2D" index="0"]
+[node name="Block" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -36,7 +31,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="SmallBlockSprite" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
 visible = false
 texture = ExtResource( 2 )
@@ -44,12 +39,12 @@ region_enabled = true
 region_rect = Rect2( 32, 64, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="SmallBlockCollision" type="CollisionShape2D" parent="." index="1"]
+[node name="BlockCollision" type="CollisionShape2D" parent="." index="1"]
 
 visible = false
 shape = SubResource( 1 )
 
-[node name="SmallBlockArea" type="Area2D" parent="." index="2"]
+[node name="BlockArea" type="Area2D" parent="." index="2"]
 
 visible = false
 input_pickable = false
@@ -61,35 +56,8 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="SmallBlockAreaCollision" type="CollisionShape2D" parent="SmallBlockArea" index="0"]
+[node name="BlockAreaCollision" type="CollisionShape2D" parent="BlockArea" index="0"]
 
 shape = SubResource( 1 )
-
-[node name="LargeBlockSprite" type="Sprite" parent="." index="3"]
-
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 160, 0, 96, 96 )
-_sections_unfolded = [ "Region" ]
-
-[node name="LargeBlockCollision" type="CollisionShape2D" parent="." index="4"]
-
-position = Vector2( 0.473335, 0 )
-shape = SubResource( 2 )
-
-[node name="LargeBlockArea" type="Area2D" parent="." index="5"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="LargeBlockAreaCollision" type="CollisionShape2D" parent="LargeBlockArea" index="0"]
-
-position = Vector2( 0.473335, 0 )
-shape = SubResource( 2 )
 
 
