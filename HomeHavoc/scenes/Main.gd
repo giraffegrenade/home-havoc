@@ -16,6 +16,9 @@ func _ready():
 
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
+	
+	if Input.is_action_just_pressed("ui_pause_screen"):
+		
 
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
@@ -34,6 +37,9 @@ func _on_SpawnTimer_timeout():
 		
 		list_of_blocks.append(clone)
 		add_child(clone)
+		
+func getMaxHeightBlock(block):
+	pass
 
 func _on_GameTimer_timeout():
 	for block in list_of_blocks:

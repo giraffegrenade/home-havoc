@@ -29,7 +29,12 @@ ui_up2=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":""
  ]
 ui_down2=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
+ui_pause_screen=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/subsurface_scattering/quality=2
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=true
