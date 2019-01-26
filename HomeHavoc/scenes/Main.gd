@@ -10,6 +10,9 @@ const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
 func _ready():
 	screensize = get_viewport().size
 
+func _process(delta):
+	$TimerLabel.text = str(int($GameTimer.get_time_left()))
+
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
 		# Choose a random number between 1 and 100
