@@ -7,6 +7,7 @@ var screensize
 const SMALL_BRICK_SCENE = preload("res://scenes/BottomBrick.tscn")
 const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
 const LONG_BRICK_SCENE = preload("res://scenes/LongBrick.tscn")
+const DOOR_BRICK_SCENE = preload("res://scenes/DoorBrick.tscn")
 
 func _ready():
 	screensize = get_viewport().size
@@ -24,8 +25,10 @@ func _on_SpawnTimer_timeout():
 		var clone
 		if randnum < 10:
 			clone = LARGE_BRICK_SCENE.instance()
-		elif randnum < 40:
+		elif randnum < 20:
 			clone = LONG_BRICK_SCENE.instance()
+		elif randnum < 40:
+			clone = DOOR_BRICK_SCENE.instance()
 		else:
 			clone = SMALL_BRICK_SCENE.instance()
 		

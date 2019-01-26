@@ -10,8 +10,10 @@ func _ready():
 
 func _physics_process(delta):
 	if connected_to_drone:
+		sleeping = true
 		$BlockCollision.disabled = true
 		$BlockArea/BlockAreaCollision.disabled = true
 	else:
+		sleeping = false
 		$BlockCollision.disabled = false
 		$BlockArea/BlockAreaCollision.disabled = false
