@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 512.094, 25.0112 )
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -23,12 +23,12 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="P1" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 131, 249 )
+position = Vector2( 888.895, 278.917 )
 player_num = 1
 
 [node name="P2" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 856, 258 )
+position = Vector2( 144.643, 276.837 )
 player_num = 2
 
 [node name="BottomBrick" parent="." index="3" instance=ExtResource( 4 )]
