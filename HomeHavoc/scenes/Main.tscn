@@ -65,7 +65,7 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 0.5
+wait_time = 3.0
 one_shot = false
 autostart = true
 
@@ -163,7 +163,7 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="RestartButton" type="Button" parent="." index="11"]
 
@@ -219,5 +219,3 @@ texture = ExtResource( 8 )
 [connection signal="pressed" from="ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
-
-
