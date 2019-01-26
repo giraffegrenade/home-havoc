@@ -69,7 +69,7 @@ func _physics_process(delta):
 			$Pickup/PickupCollision.disabled = false
 			currently_grabbing = false
 			current_grabbed_block.connected_to_drone = false
-		elif in_grab_range:
+		elif in_grab_range and !current_grabbed_block.connected_to_drone:
 			$Pickup/PickupCollision.disabled = true
 			currently_grabbing = true
 			current_grabbed_block.connected_to_drone = true

@@ -4,28 +4,28 @@
 [ext_resource path="res://art/P1.png" type="Texture" id=2]
 [ext_resource path="res://art/P2.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 17.684
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.9618, 1.68262 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.846154 )
 colors = PoolColorArray( 0.925781, 0.86792, 0, 1, 0.941406, 0.00367737, 0.00367737, 1 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=4]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 3 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -55,7 +55,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 3.0
 scale_random = 0.0
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 4 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -67,12 +67,13 @@ _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape",
 
 [node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
+z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 player_num = null
 
 [node name="P1" type="Sprite" parent="." index="0"]
@@ -90,7 +91,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="ShipCollision" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( 0, 0.0489502 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pickup" type="Area2D" parent="." index="3"]
@@ -106,7 +107,7 @@ audio_bus_name = "Master"
 [node name="PickupCollision" type="CollisionShape2D" parent="Pickup" index="0"]
 
 position = Vector2( 0.142387, 18.0843 )
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="FlameLeft" type="Particles2D" parent="." index="4"]
 
@@ -125,7 +126,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 5 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -149,7 +150,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 5 )
 texture = null
 normal_map = null
 h_frames = 1
