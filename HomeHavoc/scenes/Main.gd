@@ -47,9 +47,14 @@ func _on_GameTimer_timeout():
 				
 	tallest_block.get_node("BlockSprite").modulate = Color(10,0,0,10)
 	
+	$GameEndLabel.show()
 	if tallest_block_position.x > screensize.x * 2 / 3:
-		print("RIGHT PLAYER WINS")
+		$Arrow.show()
+		$Arrow.set_flip_h(true)
+		$GameEndLabel.text = "Winner!"
 	elif tallest_block_position.x < screensize.x / 3:
-		print("LEFT PLAYER WINS")
+		$Arrow.show()
+		$Arrow.set_flip_h(false)
+		$GameEndLabel.text = "Winner!"
 	else:
-		print("IT'S A DRAW")
+		$GameEndLabel.text = "Draw!"
