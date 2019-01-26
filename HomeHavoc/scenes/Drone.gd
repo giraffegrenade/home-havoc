@@ -49,10 +49,13 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed(right_input):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
-	elif Input.is_action_pressed(left_input):
+	if Input.is_action_pressed(left_input):
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
-	elif Input.is_action_pressed(up_input):
+	if Input.is_action_pressed(up_input):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
+		start_emitting_flames()
+	else:
+		stop_emitting_flames()
 	
 	# Check if block is being carried
 	if Input.is_action_just_pressed(grab_input):
@@ -89,3 +92,14 @@ func _on_Pickup_area_entered(area):
 
 func _on_Pickup_area_exited(area):
 	in_grab_range = false
+	
+func start_emitting_flames():
+	if not $FlameLeft.is_emitting() and not $FlameRight.is_emitting():
+		$FlameLeft.set_emitting(true)
+		$FlameRight.set_emitting(true)
+
+func stop_emitting_flames():
+	if $FlameLeft.is_emitting() or $FlameRight.is_emitting():
+		$FlameLeft.set_emitting(false)
+		$FlameRight.set_emitting(false)
+	
