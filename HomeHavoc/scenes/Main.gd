@@ -6,6 +6,7 @@ var screensize
 
 const SMALL_BRICK_SCENE = preload("res://scenes/BottomBrick.tscn")
 const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
+const LONG_BRICK_SCENE = preload("res://scenes/LongBrick.tscn")
 
 func _ready():
 	screensize = get_viewport().size
@@ -23,6 +24,8 @@ func _on_SpawnTimer_timeout():
 		var clone
 		if randnum < 10:
 			clone = LARGE_BRICK_SCENE.instance()
+		elif randnum < 40:
+			clone = LONG_BRICK_SCENE.instance()
 		else:
 			clone = SMALL_BRICK_SCENE.instance()
 		
@@ -33,26 +36,32 @@ func _on_GameTimer_timeout():
 	for block in list_of_blocks:
 		# Set block mode to MODE_STATIC
 		block.set_mode(1)
-		
 		spawn_blocks = false
 	
-	var tallest_block
-	var tallest_block_position = Vector2(0, screensize.y)
+	var tallest_block_P1
+	var tallest_block_P2
+	var tallest_block_position_P1 = Vector2(0, screensize.y)
+	var tallest_block_position_P2 = Vector2(0, screensize.y)
 	for block in list_of_blocks:
 		if len(block.get_colliding_bodies()) >= 1:
+			var player
 			block.get_node("BlockSprite").modulate = Color(100,100,100,100) # ///
-			if block.position.y <= tallest_block_position.y:
-				tallest_block_position = block.position
-				tallest_block = block
-				
-	tallest_block.get_node("BlockSprite").modulate = Color(10,0,0,10)
+			if block.position.x > screensize.x * 2 / 3 and block.position.y <= tallest_block_position_P1.y:
+				tallest_block_position_P1 = block.position
+				tallest_block_P1 = block
+			elif block.position.x < screensize.x / 3 and block.position.y <= tallest_block_position_P2.y:
+				tallest_block_position_P2 = block.position
+				tallest_block_P2 = block
 	
+	print(tallest_block_position_P1, tallest_block_position_P2)
 	$GameEndLabel.show()
-	if tallest_block_position.x > screensize.x * 2 / 3:
+	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
+		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$Arrow.show()
 		$Arrow.set_flip_h(true)
 		$GameEndLabel.text = "Winner!"
-	elif tallest_block_position.x < screensize.x / 3:
+	elif tallest_block_position_P2.y < tallest_block_position_P1.y and tallest_block_P2 != null:
+		tallest_block_P2.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$Arrow.show()
 		$Arrow.set_flip_h(false)
 		$GameEndLabel.text = "Winner!"
