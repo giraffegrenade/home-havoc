@@ -85,8 +85,8 @@ func _physics_process(delta):
 	if taking_damage:
 		health -= 1
 	if health <= 0:
-		health = MAX_HEALTH
-		position = Vector2(screensize.x / 2, 70)
+		$DeathTimer.start()
+		$DeathParticles.show()
 	
 	if position.y >= screensize.y - 70:
 		velocity.y = -5
@@ -146,3 +146,8 @@ func _on_DamageZone_area_exited(area):
 	taking_damage = false
 	$P1.modulate = Color(1, 1, 1, 1)
 	$P2.modulate = Color(1, 1, 1, 1)
+
+func _on_DeathTimer_timeout():
+		position = Vector2(screensize.x / 2, 70)
+		$DeathParticles.hide()
+		health = MAX_HEALTH
