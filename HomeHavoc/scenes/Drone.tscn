@@ -168,7 +168,29 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Time", "Z Index" ]
 
-[node name="FlameLeft" parent="." index="1" instance=ExtResource( 2 )]
+[node name="FlameLeft" type="Particles2D" parent="." index="1"]
+
+position = Vector2( -11.8347, 17.6712 )
+rotation = 1.43117
+emitting = true
+amount = 20
+lifetime = 0.1
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 60
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 8 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Transform" ]
 
 [node name="FlameRight" type="Particles2D" parent="." index="2"]
 
@@ -227,8 +249,25 @@ audio_bus_name = "Master"
 position = Vector2( 0.142387, 18.0843 )
 shape = SubResource( 10 )
 
+[node name="DamageZone" type="Area2D" parent="." index="7"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="DamageZoneCollision" type="CollisionPolygon2D" parent="DamageZone" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.271271, -19.1973, -10.951, -14.3558, 11.1204, -14.4982 )
+
 [connection signal="area_entered" from="Pickup" to="." method="_on_Pickup_area_entered"]
 
 [connection signal="area_exited" from="Pickup" to="." method="_on_Pickup_area_exited"]
 
+[connection signal="area_entered" from="DamageZone" to="." method="_on_DamageZone_area_entered"]
 
+[connection signal="area_exited" from="DamageZone" to="." method="_on_DamageZone_area_exited"]
