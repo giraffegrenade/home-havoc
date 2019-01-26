@@ -333,6 +333,13 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
+[node name="RespawnTimer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
 [connection signal="area_entered" from="Pickup" to="." method="_on_Pickup_area_entered"]
 
 [connection signal="area_exited" from="Pickup" to="." method="_on_Pickup_area_exited"]
@@ -342,5 +349,7 @@ autostart = false
 [connection signal="area_exited" from="DamageZone" to="." method="_on_DamageZone_area_exited"]
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
 
 

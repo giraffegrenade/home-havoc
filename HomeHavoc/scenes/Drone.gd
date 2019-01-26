@@ -84,9 +84,11 @@ func _physics_process(delta):
 	# Calculate drone damage
 	if taking_damage:
 		health -= 1
-	if health <= 0 and $DeathTimer.is_stopped():
-		$DeathTimer.start()
-		$DeathParticles.show()
+	if health <= 0:
+		$ShipCollision.disabled = true
+		if $DeathTimer.is_stopped():
+			$DeathTimer.start()
+			$DeathParticles.show()
 	
 	if position.y >= screensize.y - 70:
 		velocity.y = -5
@@ -103,8 +105,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, UP)
 
 func _on_Pickup_area_entered(area):
-	in_grab_range = true
-	current_grabbed_block = area.get_parent()
+	if !area.get_parent().get_class() == "KinematicBody2D":
+		in_grab_range = true
+		current_grabbed_block = area.get_parent()
 
 func _on_Pickup_area_exited(area):
 	in_grab_range = false
@@ -148,6 +151,11 @@ func _on_DamageZone_area_exited(area):
 	$P2.modulate = Color(1, 1, 1, 1)
 
 func _on_DeathTimer_timeout():
-		position = Vector2(screensize.x / 2, 70)
-		$DeathParticles.hide()
-		health = MAX_HEALTH
+	# position = Vector2(screensize.x / 2, 70)
+	set_global_position(Vector2(screensize.x / 2, 70))
+	$DeathParticles.hide()
+	health = MAX_HEALTH
+	$RespawnTimer.start()
+
+func _on_RespawnTimer_timeout():
+	$ShipCollision.disabled = false
