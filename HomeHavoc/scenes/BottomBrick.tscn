@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.214, 16.0665 )
 
-[node name="Block" type="RigidBody2D"]
+[node name="Block" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -33,7 +33,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="BlockSprite" type="Sprite" parent="." index="0"]
 
-visible = false
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 32, 64, 32, 32 )
@@ -46,7 +45,6 @@ shape = SubResource( 1 )
 
 [node name="BlockArea" type="Area2D" parent="." index="2"]
 
-visible = false
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -58,6 +56,7 @@ _sections_unfolded = [ "Collision", "Pickable" ]
 
 [node name="BlockAreaCollision" type="CollisionShape2D" parent="BlockArea" index="0"]
 
+visible = false
 shape = SubResource( 1 )
 
 
