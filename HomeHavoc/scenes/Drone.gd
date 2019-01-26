@@ -52,15 +52,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(grab_input):
 		if currently_grabbing:
 			currently_grabbing = false
+			current_grabbed_block.connected_to_drone = false
 		elif in_grab_range:
 			currently_grabbing = true
+			current_grabbed_block.connected_to_drone = true
 		
 	if current_grabbed_block != null:
 		if currently_grabbing:
 			current_grabbed_block.position = Vector2(position.x, position.y + 30)
-			current_grabbed_block.connected_to_drone = true
-		else:
-			current_grabbed_block.connected_to_drone = false
 	
 	if position.y >= screensize.y - 70:
 		velocity.y = -5
