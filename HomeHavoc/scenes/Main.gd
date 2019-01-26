@@ -69,7 +69,7 @@ func _on_GameTimer_timeout():
 		show_confetti()
 	else:
 		$Arrow/GameEndLabel.text = "Draw!"
-	
+		
 	$ExitGameButton.show()
 	$RestartButton.show()
 
