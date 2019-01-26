@@ -69,7 +69,7 @@ func _on_GameTimer_timeout():
 		$GameEndLabel.text = "Draw!"
 		
 	$ExitGameButton.show()
-	$RestartGameButton.show()
+	$RestartButton.show()
 
 func _on_RestartButton_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")
