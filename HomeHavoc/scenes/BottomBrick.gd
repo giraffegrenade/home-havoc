@@ -11,5 +11,7 @@ func _ready():
 func _physics_process(delta):
 	if connected_to_drone:
 		$BlockCollision.disabled = true
+		$BlockArea/BlockAreaCollision.disabled = true
 	else:
 		$BlockCollision.disabled = false
+		$BlockArea/BlockAreaCollision.disabled = false

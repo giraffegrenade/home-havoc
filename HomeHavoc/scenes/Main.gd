@@ -53,7 +53,6 @@ func _on_GameTimer_timeout():
 				tallest_block_position_P2 = block.position
 				tallest_block_P2 = block
 	
-	print(tallest_block_position_P1, tallest_block_position_P2)
 	$Arrow/GameEndLabel.show()
 	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
 		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
