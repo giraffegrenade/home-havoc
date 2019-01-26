@@ -49,8 +49,9 @@ func _on_SpawnTimer_timeout():
 func getMaxHeightBlock(block):
 	#Gets the top of the block, including rotation
 	var hypot = pow(pow(block.dimensions.x, 2) + pow(block.dimensions.y, 2), 0.5) / 2
-	var angle = block.rotation
-	return block.position.y - hypot * max(abs(cos(angle-PI/4)), abs(sin(angle-PI/4)))
+	var main_angle = block.rotation
+	var diff_angle = atan(block.dimensions.y/block.dimensions.x)
+	return block.position.y - hypot * max(abs(sin(main_angle-diff_angle)), abs(sin(main_angle+diff_angle)))
 
 func _on_GameTimer_timeout():
 	for block in list_of_blocks:
