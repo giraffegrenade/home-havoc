@@ -4,12 +4,12 @@
 [ext_resource path="res://art/P1.png" type="Texture" id=2]
 [ext_resource path="res://art/P2.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 17.684
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.9618, 1.68262 )
@@ -25,7 +25,7 @@ flags = 4
 gradient = SubResource( 4 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 1
@@ -89,7 +89,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="ShipCollision" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( 0, 0.0489502 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pickup" type="Area2D" parent="." index="3"]
@@ -105,7 +105,7 @@ audio_bus_name = "Master"
 [node name="PickupCollision" type="CollisionShape2D" parent="Pickup" index="0"]
 
 position = Vector2( 0.142387, 18.0843 )
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 
 [node name="FlameLeft" type="Particles2D" parent="." index="4"]
 
@@ -124,14 +124,14 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 8 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Time", "Transform" ]
 
-[node name="FlameLeft2" type="Particles2D" parent="." index="5"]
+[node name="FlameRight" type="Particles2D" parent="." index="5"]
 
 position = Vector2( 12.3195, 17.3556 )
 rotation = 1.71042
@@ -148,7 +148,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 8 )
 texture = null
 normal_map = null
 h_frames = 1
