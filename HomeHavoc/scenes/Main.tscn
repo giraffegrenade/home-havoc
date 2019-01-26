@@ -222,4 +222,8 @@ scale = Vector2( 3.30898, 3.30898 )
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 
+[connection signal="pressed" from="ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+
 
