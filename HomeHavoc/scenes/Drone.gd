@@ -100,14 +100,16 @@ func _on_Pickup_area_exited(area):
 	in_grab_range = false
 	
 func start_emitting_flames():
-	if not $FlameLeft.is_emitting() and not $FlameRight.is_emitting():
+	if not $FlameLeft.is_emitting() or not $FlameRight.is_emitting() or not$SmokeTrail.is_emitting():
 		$FlameLeft.set_emitting(true)
 		$FlameRight.set_emitting(true)
+		$SmokeTrail.set_emitting(true)
 
 func stop_emitting_flames():
 	if $FlameLeft.is_emitting() or $FlameRight.is_emitting():
 		$FlameLeft.set_emitting(false)
 		$FlameRight.set_emitting(false)
+		$SmokeTrail.set_emitting(false)
 		
 func turning_right():
 	if rotation < MAX_ROT:

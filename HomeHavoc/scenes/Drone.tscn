@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Drone.gd" type="Script" id=1]
 [ext_resource path="res://art/P1.png" type="Texture" id=2]
@@ -15,6 +15,19 @@ flags = 4
 gradient = SubResource( 6 )
 width = 2048
 
+[sub_resource type="Curve" id=12]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.00421838, 0.420415 ), 0.0, 0.278459, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+
+flags = 4
+width = 2048
+curve = SubResource( 12 )
+
 [sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
@@ -24,7 +37,7 @@ emission_box_extents = Vector3( 1, 8, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 15.0
+spread = 10.0
 flatness = 0.0
 gravity = Vector3( 0, 98, 0 )
 initial_velocity = 300.0
@@ -43,8 +56,9 @@ damping = 93.22
 damping_random = 0.0
 angle = 0.0
 angle_random = 0.0
-scale = 4.0
+scale = 8.0
 scale_random = 0.0
+scale_curve = SubResource( 13 )
 color_ramp = SubResource( 7 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -53,7 +67,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Scale", "Spread" ]
+_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Scale" ]
 
 [sub_resource type="Gradient" id=4]
 
