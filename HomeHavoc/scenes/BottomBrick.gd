@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var connected_to_drone
+export (int) var block_offset = 30
 
 func _ready():
 	set_contact_monitor(true)

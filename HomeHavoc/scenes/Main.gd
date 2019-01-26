@@ -9,6 +9,8 @@ const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
 
 func _ready():
 	screensize = get_viewport().size
+	$Barriers/P2Barrier.position = Vector2(screensize.x / 3, screensize.y / 2)
+	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3, screensize.y / 2)
 
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
@@ -38,7 +40,7 @@ func _on_GameTimer_timeout():
 	var tallest_block_position = Vector2(0, screensize.y)
 	for block in list_of_blocks:
 		if len(block.get_colliding_bodies()) >= 1:
-			block.get_node("BlockSprite").modulate = Color(10,10,10,10) # ///
+			block.get_node("BlockSprite").modulate = Color(100,100,100,100) # ///
 			if block.position.y <= tallest_block_position.y:
 				tallest_block_position = block.position
 				tallest_block = block

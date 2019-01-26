@@ -8,12 +8,15 @@ const MAX_SPEED = 1000
 const ACCELERATION = 30
 const MAX_ROT = PI/4
 const ROT_RATE = 0.05
+const MAX_HEALTH = 100
 
 var screensize
 var velocity = Vector2()
 var in_grab_range = false
 var current_grabbed_block
 var currently_grabbing = false
+var health = MAX_HEALTH
+var taking_damage = false
 
 func _ready():
 	screensize = get_viewport().size
@@ -76,7 +79,14 @@ func _physics_process(delta):
 		
 	if current_grabbed_block != null:
 		if currently_grabbing:
-			current_grabbed_block.position = Vector2(position.x, position.y + 30)
+			current_grabbed_block.position = Vector2(position.x, position.y + current_grabbed_block.block_offset)
+	
+	# Calculate drone damage
+	if taking_damage:
+		health -= 1
+	if health <= 0:
+		health = MAX_HEALTH
+		position = Vector2(screensize.x / 2, 70)
 	
 	if position.y >= screensize.y - 70:
 		velocity.y = -5
@@ -127,3 +137,12 @@ func not_turning():
 	else:
 		rotation += ROT_RATE
 	
+func _on_DamageZone_area_entered(area):
+	taking_damage = true
+	$P1.modulate = Color(100, 100, 100, 100)
+	$P2.modulate = Color(100, 100, 100, 100)
+
+func _on_DamageZone_area_exited(area):
+	taking_damage = false
+	$P1.modulate = Color(1, 1, 1, 1)
+	$P2.modulate = Color(1, 1, 1, 1)

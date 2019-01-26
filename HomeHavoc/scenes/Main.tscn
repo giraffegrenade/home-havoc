@@ -1,38 +1,31 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/bottom.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 512.094, 25.0112 )
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 70
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 5 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
 [node name="Background" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( -1.40881, 298.709 )
+z_index = -3
 
 [node name="Bottom" type="Sprite" parent="." index="1"]
 
+rotation = 0.000369321
 scale = Vector2( 1.02378, 1 )
+z_index = 1
 texture = ExtResource( 3 )
 offset = Vector2( 500, 575 )
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Offset", "Z Index" ]
 
 [node name="P1" parent="." index="2" instance=ExtResource( 4 )]
 
@@ -58,6 +51,7 @@ bounce = 0.0
 
 position = Vector2( 512, 574.44 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="SpawnTimer" type="Timer" parent="." index="5"]
 
@@ -69,32 +63,9 @@ autostart = true
 [node name="GameTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 60.0
+wait_time = 20.0
 one_shot = true
 autostart = true
-
-[node name="TimerLabel" type="Label" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 458.0
-margin_top = 17.0
-margin_right = 631.0
-margin_bottom = 138.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "120"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
