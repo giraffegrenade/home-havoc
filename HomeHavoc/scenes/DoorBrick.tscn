@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.214, 31.9219 )
 
-[node name="Block" type="RigidBody2D" index="0"]
+[node name="Block" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

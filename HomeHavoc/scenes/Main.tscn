@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://art/barrier.png" type="Texture" id=6]
-[ext_resource path="res://art/arrow.png" type="Texture" id=7]
-[ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,7 +21,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -115,26 +114,17 @@ z_index = -1
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Arrow" type="Sprite" parent="." index="9"]
-
-visible = false
-position = Vector2( 504.259, 330.8 )
-scale = Vector2( 1.42571, 1.42571 )
-z_index = 1
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
-
-[node name="GameEndLabel" type="Label" parent="Arrow" index="0"]
+[node name="GameEndLabel" type="Label" parent="." index="9"]
 
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -86.4545
-margin_top = -60.1804
-margin_right = 185.545
-margin_bottom = 60.8196
+margin_left = 380.0
+margin_top = 243.0
+margin_right = 652.0
+margin_bottom = 364.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -142,7 +132,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Winner!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -204,14 +193,14 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="ConfettiHolder" type="Node" parent="." index="12"]
 
-[node name="Confetti" parent="ConfettiHolder" index="0" instance=ExtResource( 8 )]
+[node name="Confetti" parent="ConfettiHolder" index="0" instance=ExtResource( 7 )]
 
 visible = false
 position = Vector2( 6.99875, 8.1073 )
 rotation = 0.810548
 scale = Vector2( 3.30898, 3.30898 )
 
-[node name="Confetti2" parent="ConfettiHolder" index="1" instance=ExtResource( 8 )]
+[node name="Confetti2" parent="ConfettiHolder" index="1" instance=ExtResource( 7 )]
 
 visible = false
 position = Vector2( 1018.63, 6.9993 )
