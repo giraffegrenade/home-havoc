@@ -18,7 +18,7 @@ func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
 	
 	if Input.is_action_just_pressed("ui_pause_screen"):
-		
+		pass
 
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:

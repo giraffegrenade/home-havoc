@@ -61,9 +61,12 @@ func _physics_process(delta):
 	else:
 		not_turning()
 	if Input.is_action_pressed(up_input):
+		if !$JetSound.is_playing():
+			$JetSound.play()
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
 		start_emitting_flames()
 	else:
+		$JetSound.stop()
 		stop_emitting_flames()
 	
 	# Check if block is being carried
