@@ -9,6 +9,7 @@ const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
 const LONG_BRICK_SCENE = preload("res://scenes/LongBrick.tscn")
 const DOOR_BRICK_SCENE = preload("res://scenes/DoorBrick.tscn")
 const WINDOW_BRICK_SCENE = preload("res://scenes/WindowBrick.tscn")
+const CANON_BRICK_SCENE = preload("res://scenes/CanonBrick.tscn")
 
 func _ready():
 	screensize = get_viewport().size
@@ -27,6 +28,7 @@ func _on_SpawnTimer_timeout():
 		var randnum = randi()%101+1
 		
 		var clone
+		"""
 		if randnum < 10:
 			clone = LARGE_BRICK_SCENE.instance()
 		elif randnum < 20:
@@ -35,8 +37,11 @@ func _on_SpawnTimer_timeout():
 			clone = DOOR_BRICK_SCENE.instance()
 		elif randnum < 60:
 			clone = WINDOW_BRICK_SCENE.instance()
+		elif randnum < 95:
+			clone = CANON_BRICK_SCENE.instance()
 		else:
 			clone = SMALL_BRICK_SCENE.instance()
+		"""
 		
 		list_of_blocks.append(clone)
 		add_child(clone)
