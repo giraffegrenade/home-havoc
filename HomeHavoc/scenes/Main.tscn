@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 512.094, 25.0112 )
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -53,7 +53,7 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 0.5
+wait_time = 3.0
 one_shot = false
 autostart = true
 

@@ -76,8 +76,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, UP)
 
 func _on_Pickup_area_entered(area):
-	current_grabbed_block = area.get_parent()
 	in_grab_range = true
+	current_grabbed_block = area.get_parent()
 
 func _on_Pickup_area_exited(area):
 	in_grab_range = false

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.214, 16.0665 )
 
-[node name="RigidBody2D" type="RigidBody2D" index="0"]
+[node name="Block" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -31,29 +31,30 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="SmallBlock" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 32, 64, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="SmallBlockCollision" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
+[node name="SmallBlockArea" type="Area2D" parent="." index="2"]
 
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="SmallBlockAreaCollision" type="CollisionShape2D" parent="SmallBlockArea" index="0"]
 
 shape = SubResource( 1 )
 
