@@ -50,4 +50,13 @@ bounce = 0.0
 position = Vector2( 512, 574.44 )
 shape = SubResource( 1 )
 
+[node name="SpawnTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
 
