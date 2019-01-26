@@ -59,5 +59,3 @@ audio_bus_name = "Master"
 visible = false
 position = Vector2( 0.473335, 0 )
 shape = SubResource( 1 )
-
-
