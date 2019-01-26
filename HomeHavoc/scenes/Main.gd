@@ -18,7 +18,7 @@ func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
 	
 	if Input.is_action_just_pressed("ui_pause_screen"):
-		
+		pass
 
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
@@ -39,26 +39,29 @@ func _on_SpawnTimer_timeout():
 		add_child(clone)
 		
 func getMaxHeightBlock(block):
-	pass
+	#Gets the top of the block, including rotation
+	var hypot = pow(pow(block.dimensions.x, 2) + pow(block.dimensions.y, 2), 0.5) / 2
+	var angle = block.rotation
+	return block.position.y - hypot * max(abs(cos(angle-PI/4)), abs(sin(angle-PI/4)))
 
 func _on_GameTimer_timeout():
 	for block in list_of_blocks:
 		# Set block mode to MODE_STATIC
 		block.set_mode(1)
 		spawn_blocks = false
-	
 	var tallest_block_P1
 	var tallest_block_P2
 	var tallest_block_position_P1 = Vector2(0, screensize.y)
 	var tallest_block_position_P2 = Vector2(0, screensize.y)
 	for block in list_of_blocks:
+		print(block.rotation)
 		if len(block.get_colliding_bodies()) >= 1:
 			var player
 			block.get_node("BlockSprite").modulate = Color(100,100,100,100) # ///
-			if block.position.x > screensize.x * 2 / 3 and block.position.y <= tallest_block_position_P1.y:
+			if block.position.x > screensize.x * 2 / 3 and getMaxHeightBlock(block) <= tallest_block_position_P1.y:
 				tallest_block_position_P1 = block.position
 				tallest_block_P1 = block
-			elif block.position.x < screensize.x / 3 and block.position.y <= tallest_block_position_P2.y:
+			elif block.position.x < screensize.x / 3 and getMaxHeightBlock(block) <= tallest_block_position_P2.y:
 				tallest_block_position_P2 = block.position
 				tallest_block_P2 = block
 	
@@ -66,9 +69,13 @@ func _on_GameTimer_timeout():
 	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
 		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$ConfettiHolder/Confetti2.show()
+		$Line.position.x = tallest_block_position_P1.x
+		$Line.position.y = getMaxHeightBlock(tallest_block_P1)
 	elif tallest_block_position_P2.y < tallest_block_position_P1.y and tallest_block_P2 != null:
 		tallest_block_P2.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$ConfettiHolder/Confetti.show()
+		$Line.position.x = tallest_block_position_P2.x
+		$Line.position.y = getMaxHeightBlock(tallest_block_P2)
 	else:
 		$GameEndLabel.text = "Draw!"
 		

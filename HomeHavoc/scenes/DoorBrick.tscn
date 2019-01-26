@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.214, 31.9219 )
 
-[node name="Block" type="RigidBody2D" index="0"]
+[node name="Block" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -30,6 +30,7 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 block_offset = 30
+dimensions = Vector2( 32, 64 )
 
 [node name="BlockSprite" type="Sprite" parent="." index="0"]
 
