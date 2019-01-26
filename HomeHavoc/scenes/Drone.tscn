@@ -65,7 +65,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Spread", "Trail" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 z_index = 1
 input_pickable = false
