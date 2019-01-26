@@ -23,12 +23,12 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="P1" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 131, 249 )
+position = Vector2( 949.837, 303.294 )
 player_num = 1
 
 [node name="P2" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 856, 258 )
+position = Vector2( 121.374, 313.402 )
 player_num = 2
 
 [node name="BottomBrick" parent="." index="3" instance=ExtResource( 4 )]

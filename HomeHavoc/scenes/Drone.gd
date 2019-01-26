@@ -28,6 +28,8 @@ func _physics_process(delta):
 	var left_input
 	var up_input
 	var grab_input
+	var x_left_limit
+	var x_right_limit
 	
 	# Setting up two player input
 	if player_num == 1:
@@ -35,11 +37,15 @@ func _physics_process(delta):
 		left_input = "ui_left"
 		up_input = "ui_up"
 		grab_input = "ui_down"
+		x_left_limit = screensize.x / 3
+		x_right_limit = 0
 	else:
 		right_input = "ui_right2"
 		left_input = "ui_left2"
 		up_input = "ui_up2"
 		grab_input = "ui_down2"
+		x_left_limit = 0
+		x_right_limit = screensize.x / 3
 		
 	if Input.is_action_pressed(right_input):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
@@ -67,12 +73,12 @@ func _physics_process(delta):
 		velocity.y = -5
 	if position.y <= 0:
 		velocity.y = 5
-	if position.x >= screensize.x:
+	if position.x >= screensize.x - x_right_limit:
 		velocity.x = -5
-	if position.x <= 0:
+	if position.x <= 0 + x_left_limit:
 		velocity.x = 5
 	
-	position.x = clamp(position.x, 0, screensize.x)
+	position.x = clamp(position.x, 0 + x_left_limit, screensize.x - x_right_limit)
 	position.y = clamp(position.y, 0, screensize.y - 70)
 	
 	velocity = move_and_slide(velocity, UP)
