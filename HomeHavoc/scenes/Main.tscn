@@ -77,14 +77,13 @@ autostart = true
 
 [node name="TimerLabel" type="Label" parent="." index="7"]
 
-anchor_left = 0.0
+anchor_left = 0.5
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 458.0
-margin_top = 17.0
-margin_right = 631.0
-margin_bottom = 138.0
+margin_left = -87.0
+margin_right = 86.0
+margin_bottom = 121.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -93,6 +92,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "120"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
