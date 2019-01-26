@@ -150,6 +150,62 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
+[node name="ExitGameButton" type="Button" parent="." index="11"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_top = 450.0
+margin_right = 612.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Main Menu"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="RestartButton" type="Button" parent="." index="12"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_top = 364.0
+margin_right = 612.0
+margin_bottom = 414.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Restart"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+
+
