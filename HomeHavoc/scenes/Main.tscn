@@ -21,7 +21,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -71,7 +71,7 @@ autostart = true
 [node name="GameTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 120.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
@@ -162,7 +162,7 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="RestartButton" type="Button" parent="." index="11"]
 
