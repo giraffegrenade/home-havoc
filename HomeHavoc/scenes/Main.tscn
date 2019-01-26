@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://art/barrier.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/line.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -64,14 +65,14 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 0.5
 one_shot = false
 autostart = true
 
 [node name="GameTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 120.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -162,7 +163,7 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="RestartButton" type="Button" parent="." index="11"]
 
@@ -206,6 +207,10 @@ visible = false
 position = Vector2( 1018.63, 6.9993 )
 rotation = 2.33069
 scale = Vector2( 3.30898, 3.30898 )
+
+[node name="Line" type="Sprite" parent="." index="13"]
+
+texture = ExtResource( 8 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
