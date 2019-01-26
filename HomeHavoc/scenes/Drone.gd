@@ -51,9 +51,11 @@ func _physics_process(delta):
 	# Check if block is being carried
 	if Input.is_action_just_pressed(grab_input):
 		if currently_grabbing:
+			$Pickup/PickupCollision.disabled = false
 			currently_grabbing = false
 			current_grabbed_block.connected_to_drone = false
 		elif in_grab_range:
+			$Pickup/PickupCollision.disabled = true
 			currently_grabbing = true
 			current_grabbed_block.connected_to_drone = true
 		
