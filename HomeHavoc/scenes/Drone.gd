@@ -9,6 +9,9 @@ const ACCELERATION = 40
 
 var screensize
 var velocity = Vector2()
+var in_grab_range = false
+var current_grabbed_block
+var currently_grabbing = false
 
 func _ready():
 	screensize = get_viewport().size
@@ -45,6 +48,20 @@ func _physics_process(delta):
 	elif Input.is_action_pressed(up_input):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
 	
+	# Check if block is being carried
+	if Input.is_action_just_pressed(grab_input):
+		if currently_grabbing:
+			currently_grabbing = false
+		elif in_grab_range:
+			currently_grabbing = true
+		
+	if current_grabbed_block != null:
+		if currently_grabbing:
+			current_grabbed_block.position = Vector2(position.x, position.y + 30)
+			current_grabbed_block.connected_to_drone = true
+		else:
+			current_grabbed_block.connected_to_drone = false
+	
 	if position.y >= screensize.y - 70:
 		velocity.y = -5
 	if position.y <= 0:
@@ -58,3 +75,10 @@ func _physics_process(delta):
 	position.y = clamp(position.y, 0, screensize.y - 70)
 	
 	velocity = move_and_slide(velocity, UP)
+
+func _on_Pickup_area_entered(area):
+	current_grabbed_block = area.get_parent()
+	in_grab_range = true
+
+func _on_Pickup_area_exited(area):
+	in_grab_range = false

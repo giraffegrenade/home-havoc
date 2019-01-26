@@ -1,9 +1,9 @@
 extends RigidBody2D
 
-var connected_to_drone = true
+var connected_to_drone
 
-func _on_Area2D_area_entered(area):
-	connected_to_drone = true
-
-func _on_Area2D_area_exited(area):
-	connected_to_drone = false
+func _physics_process(delta):
+	if connected_to_drone:
+		$CollisionShape2D.disabled = true
+	else:
+		$CollisionShape2D.disabled = false
