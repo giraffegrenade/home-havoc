@@ -31,7 +31,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="SmallBlockSprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 region_enabled = true
