@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Tutorial.gd" type="Script" id=1]
-[ext_resource path="res://art/tutorial.JPG" type="Texture" id=2]
+[ext_resource path="res://art/tutorial.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=3]
 
 [node name="CanvasLayer" type="CanvasLayer" index="0"]
@@ -72,6 +72,8 @@ align = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Sprite" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( -2.51685, 298.709 )
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 
