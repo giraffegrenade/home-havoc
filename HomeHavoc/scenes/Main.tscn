@@ -57,6 +57,15 @@ wait_time = 3.0
 one_shot = false
 autostart = true
 
+[node name="GameTimer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 
 
