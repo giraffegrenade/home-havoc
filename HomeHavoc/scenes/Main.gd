@@ -73,3 +73,13 @@ func _on_GameTimer_timeout():
 func show_confetti():
 	$ConfettiHolder/Confetti.show()
 	$ConfettiHolder/Confetti2.show()
+		
+	$ExitGameButton.show()
+	$RestartButton.show()
+
+func _on_RestartButton_pressed():
+	get_tree().change_scene("res://scenes/Main.tscn")
+
+
+func _on_ExitGameButton_pressed():
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
