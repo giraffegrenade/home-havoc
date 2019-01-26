@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/bottom.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://art/barrier.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,7 +20,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -95,6 +96,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
+
+[node name="Barriers" type="Node" parent="." index="8"]
+
+[node name="P2Barrier" type="Sprite" parent="Barriers" index="0"]
+
+position = Vector2( 250.415, 299.169 )
+z_index = -1
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="P1Barrier" type="Sprite" parent="Barriers" index="1"]
+
+position = Vector2( 771.191, 298.061 )
+z_index = -1
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Z Index" ]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
