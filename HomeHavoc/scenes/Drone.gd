@@ -84,7 +84,7 @@ func _physics_process(delta):
 	# Calculate drone damage
 	if taking_damage:
 		health -= 1
-	if health <= 0:
+	if health <= 0 and $DeathTimer.is_stopped():
 		$DeathTimer.start()
 		$DeathParticles.show()
 	
