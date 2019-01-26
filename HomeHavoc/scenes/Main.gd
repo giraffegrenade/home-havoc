@@ -41,3 +41,6 @@ func _on_GameTimer_timeout():
 				tallest_block = block
 				
 	tallest_block.get_node("BlockSprite").modulate = Color(10,0,0,10)
+	
+	if tallest_block_position.x > screensize * 2 / 3:
+		print("RIGHT PLAYER WINS")
