@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://art/barrier.png" type="Texture" id=6]
 [ext_resource path="res://art/arrow.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,7 +16,7 @@ extents = Vector2( 512.094, 25.0112 )
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 70
+size = 60
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 5 )
@@ -71,7 +72,7 @@ autostart = true
 [node name="GameTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 120.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -117,23 +118,23 @@ _sections_unfolded = [ "Z Index" ]
 [node name="Arrow" type="Sprite" parent="." index="9"]
 
 visible = false
-position = Vector2( 505.82, 308.608 )
-scale = Vector2( 1.23407, 1.23407 )
+position = Vector2( 504.259, 330.8 )
+scale = Vector2( 1.42571, 1.42571 )
+z_index = 1
 texture = ExtResource( 7 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="GameEndLabel" type="Label" parent="." index="10"]
+[node name="GameEndLabel" type="Label" parent="Arrow" index="0"]
 
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 398.0
-margin_top = 237.0
-margin_right = 670.0
-margin_bottom = 358.0
+margin_left = -86.4545
+margin_top = -60.1804
+margin_right = 185.545
+margin_bottom = 60.8196
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -147,7 +148,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="ExitGameButton" type="Button" parent="." index="11"]
+[node name="ExitGameButton" type="Button" parent="." index="10"]
 
 visible = false
 anchor_left = 0.0
@@ -174,7 +175,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="RestartButton" type="Button" parent="." index="12"]
+[node name="RestartButton" type="Button" parent="." index="11"]
 
 visible = false
 anchor_left = 0.0
@@ -200,6 +201,22 @@ text = "Restart"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="ConfettiHolder" type="Node" parent="." index="12"]
+
+[node name="Confetti" parent="ConfettiHolder" index="0" instance=ExtResource( 8 )]
+
+visible = false
+position = Vector2( 6.99875, 8.1073 )
+rotation = 0.810548
+scale = Vector2( 3.30898, 3.30898 )
+
+[node name="Confetti2" parent="ConfettiHolder" index="1" instance=ExtResource( 8 )]
+
+visible = false
+position = Vector2( 1018.63, 6.9993 )
+rotation = 2.33069
+scale = Vector2( 3.30898, 3.30898 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 

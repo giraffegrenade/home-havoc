@@ -1,1 +1,0 @@
-extends "res://scenes/BottomBrick.gd"

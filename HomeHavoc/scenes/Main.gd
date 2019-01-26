@@ -54,16 +54,22 @@ func _on_GameTimer_timeout():
 				tallest_block_P2 = block
 	
 	print(tallest_block_position_P1, tallest_block_position_P2)
-	$GameEndLabel.show()
+	$Arrow/GameEndLabel.show()
 	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
 		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$Arrow.show()
 		$Arrow.set_flip_h(true)
-		$GameEndLabel.text = "Winner!"
+		$Arrow/GameEndLabel.text = "Winner!"
+		show_confetti()
 	elif tallest_block_position_P2.y < tallest_block_position_P1.y and tallest_block_P2 != null:
 		tallest_block_P2.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$Arrow.show()
 		$Arrow.set_flip_h(false)
-		$GameEndLabel.text = "Winner!"
+		$Arrow/GameEndLabel.text = "Winner!"
+		show_confetti()
 	else:
-		$GameEndLabel.text = "Draw!"
+		$Arrow/GameEndLabel.text = "Draw!"
+
+func show_confetti():
+	$ConfettiHolder/Confetti.show()
+	$ConfettiHolder/Confetti2.show()
