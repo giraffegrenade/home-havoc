@@ -40,7 +40,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Gravity", "Hue Variation", "Initial Velocity", "Scale" ]
 
-[node name="Confetti" type="Node" index="0"]
+[node name="Confetti" type="Node"]
 
 [node name="Emitter" type="Particles2D" parent="." index="0"]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -88,6 +89,8 @@ text = "Exit"
 flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Sprite" parent="." index="3" instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 
