@@ -4,8 +4,8 @@ export (int) var player_num
 
 const UP = Vector2(0, -1)
 const GRAVITY = 5
-const MAX_SPEED = 2000
-const ACCELERATION = 40
+const MAX_SPEED = 1000
+const ACCELERATION = 30
 const MAX_ROT = PI/4
 const ROT_RATE = 0.05
 
