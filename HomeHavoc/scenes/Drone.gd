@@ -6,6 +6,8 @@ const UP = Vector2(0, -1)
 const GRAVITY = 5
 const MAX_SPEED = 2000
 const ACCELERATION = 40
+const MAX_ROT = PI/4
+const ROT_RATE = 0.05
 
 var screensize
 var velocity = Vector2()
@@ -49,8 +51,12 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed(right_input):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
-	if Input.is_action_pressed(left_input):
+		turning_right()
+	elif Input.is_action_pressed(left_input):
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
+		turning_left()
+	else:
+		not_turning()
 	if Input.is_action_pressed(up_input):
 		velocity.y = max(velocity.y - ACCELERATION, -MAX_SPEED)
 		start_emitting_flames()
@@ -102,4 +108,20 @@ func stop_emitting_flames():
 	if $FlameLeft.is_emitting() or $FlameRight.is_emitting():
 		$FlameLeft.set_emitting(false)
 		$FlameRight.set_emitting(false)
+		
+func turning_right():
+	if rotation < MAX_ROT:
+		rotation += ROT_RATE
+
+func turning_left():
+	if rotation > -MAX_ROT:
+		rotation -= ROT_RATE
+		
+func not_turning():
+	if abs(rotation) < ROT_RATE:
+		rotation = 0
+	elif rotation > 0:
+		rotation -= ROT_RATE
+	else:
+		rotation += ROT_RATE
 	
