@@ -4,12 +4,12 @@ extends CanvasLayer
 func _on_StartButton_pressed():
 	#save options
 	var config = ConfigFile.new()
-	config.set_value("Spawn Rates", "Small Bricks", getRateValue($SpawnRatePanel/SmallBricks.get_selected_id()))
-	config.set_value("Spawn Rates", "Glass", getRateValue($SpawnRatePanel/Glass.get_selected_id()))
-	config.set_value("Spawn Rates", "Large Bricks", getRateValue($SpawnRatePanel/LargeBricks.get_selected_id()))
-	config.set_value("Spawn Rates", "Doors", getRateValue($SpawnRatePanel/Doors.get_selected_id()))
-	config.set_value("Spawn Rates", "Planks", getRateValue($SpawnRatePanel/Planks.get_selected_id()))
-	config.set_value("Spawn Rates", "Turrets", getRateValue($SpawnRatePanel/Turrets.get_selected_id()))
+	config.set_value("Spawn Rates", "Small Bricks", getRateValue($SpawnRatePanel/SmallBricks.selected))
+	config.set_value("Spawn Rates", "Glass", getRateValue($SpawnRatePanel/Glass.selected))
+	config.set_value("Spawn Rates", "Large Bricks", getRateValue($SpawnRatePanel/LargeBricks.selected))
+	config.set_value("Spawn Rates", "Doors", getRateValue($SpawnRatePanel/Doors.selected))
+	config.set_value("Spawn Rates", "Planks", getRateValue($SpawnRatePanel/Planks.selected))
+	config.set_value("Spawn Rates", "Turrets", getRateValue($SpawnRatePanel/Turrets.selected))
 	config.save("config.cfg")
 	
 	get_tree().change_scene("res://scenes/Main.tscn")
@@ -25,6 +25,7 @@ func getRateValue(index):
 		return 0.25
 	if index == 4:
 		return 0.6
+	return -1
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")

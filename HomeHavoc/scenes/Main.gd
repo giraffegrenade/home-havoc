@@ -27,12 +27,12 @@ func _ready():
 	var err = config.load("config.cfg")
 	if err == OK: # if not, something went wrong with the file loading
 		rates = {
-			SmallBricks = config.get_value("Spawn Rates", "Small Bricks", 0),
-			Glass = config.get_value("Spawn Rates", "Glass", 0),
-			LargeBricks = config.get_value("Spawn Rates", "Large Bricks", 0),
-			Doors = config.get_value("Spawn Rates", "Doors", 0),
-			Planks = config.get_value("Spawn Rates", "Planks", 0),
-			Turrets = config.get_value("Spawn Rates", "Turrets", 0),
+			SmallBricks = config.get_value("Spawn Rates", "SmallBricks", -1),
+			Glass = config.get_value("Spawn Rates", "Glass", -1),
+			LargeBricks = config.get_value("Spawn Rates", "LargeBricks", -1),
+			Doors = config.get_value("Spawn Rates", "Doors", -1),
+			Planks = config.get_value("Spawn Rates", "Planks", -1),
+			Turrets = config.get_value("Spawn Rates", "Turrets", -1),
 		}
 		print(rates)
 	else:
@@ -46,24 +46,33 @@ func _process(delta):
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
 		# Choose a random number between 1 and 100
-#		var randnum = (randi()%101) / 100
+#		var randnum = float(randi()%101) / 100
 		
 		var clone
-		if (randi()%101) / 100 < rates["LargeBricks"]:
+		if float(randi()%101) / 100 < rates["LargeBricks"]:
 			clone = LARGE_BRICK_SCENE.instance()
-		elif (randi()%101) / 100 < rates["Planks"]:
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
+		if float(randi()%101) / 100 < rates["Planks"]:
 			clone = LONG_BRICK_SCENE.instance()
-		elif (randi()%101) / 100 < rates["Doors"]:
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
+		if float(randi()%101) / 100 < rates["Doors"]:
 			clone = DOOR_BRICK_SCENE.instance()
-		elif (randi()%101) / 100 < rates["Glass"]:
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
+		if float(randi()%101) / 100 < rates["Glass"]:
 			clone = WINDOW_BRICK_SCENE.instance()
-		elif (randi()%101) / 100 < rates["SmallBricks"]:
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
+		if float(randi()%101) / 100 < rates["SmallBricks"]:
 			clone = SMALL_BRICK_SCENE.instance()
-		elif (randi()%101) / 100 < rates["Turrets"]:
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
+		if float(randi()%101) / 100 < rates["Turrets"]:
 			clone = CANON_BRICK_SCENE.instance()
-			
-		list_of_blocks.append(clone)
-		$BlockHolder.add_child(clone)
+			list_of_blocks.append(clone)
+			$BlockHolder.add_child(clone)
 		
 func getMaxHeightBlock(block):
 	#Gets the top of the block, including rotation
