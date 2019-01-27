@@ -14,6 +14,7 @@ func _ready():
 	
 func _on_CanonTimer_timeout():
 	if !connected_to_drone:
+		$Fire.play()
 		var rot_offset = 0
 		ball.position = position - Vector2(cos(rotation + rot_offset), sin(rotation + rot_offset)) * 12
 		if flipped:
