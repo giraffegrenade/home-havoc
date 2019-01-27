@@ -80,7 +80,7 @@ autostart = true
 process_mode = 1
 wait_time = 90.0
 one_shot = true
-autostart = true
+autostart = false
 
 [node name="Barriers" type="Node" parent="." index="8"]
 

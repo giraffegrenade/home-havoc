@@ -73,9 +73,61 @@ align = 1
 script = SubResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Sprite" parent="." index="2" instance=ExtResource( 2 )]
+[node name="GameTime" type="OptionButton" parent="." index="2"]
 
-[node name="SpawnRatePanel" type="Panel" parent="." index="3"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 330.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+items = [  ]
+selected = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="GameTime" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -77.0
+margin_top = 7.0
+margin_right = -3.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Game Time"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Sprite" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="SpawnRatePanel" type="Panel" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0

@@ -1,5 +1,13 @@
 extends CanvasLayer
 
+func _ready():
+	$GameTime.add_item("5")
+	$GameTime.add_item("20")
+	$GameTime.add_item("45")
+	$GameTime.add_item("90")
+	$GameTime.add_item("120")
+	$GameTime.add_item("300")
+	$GameTime.select(2)
 
 func _on_StartButton_pressed():
 	#save options
@@ -11,6 +19,7 @@ func _on_StartButton_pressed():
 	config.set_value("Spawn Rates", "Planks", getRateValue($SpawnRatePanel/Planks.selected))
 	config.set_value("Spawn Rates", "Turrets", getRateValue($SpawnRatePanel/Turrets.selected))
 	config.set_value("Spawn Rates", "Overall", getOverallValue($SpawnRatePanel/Overall.selected))
+	config.set_value("Game Options", "GameTime", $GameTime.get_item_text($GameTime.selected))
 	config.save("config.cfg")
 	
 	get_tree().change_scene("res://scenes/Main.tscn")

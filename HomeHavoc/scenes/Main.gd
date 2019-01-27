@@ -38,6 +38,9 @@ func _ready():
 		}
 		print(rates)
 		spawn_period = config.get_value("Spawn Rates", "Overall")
+		print(spawn_period)
+		$GameTimer.wait_time = int(config.get_value("Game Options", "GameTime"))
+		$GameTimer.start()
 	else:
 		print("Error loading config file")
 
