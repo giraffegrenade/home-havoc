@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -110,6 +110,8 @@ visible = false
 position = Vector2( 6.99875, 8.1073 )
 rotation = 0.810548
 scale = Vector2( 3.30898, 3.30898 )
+z_index = 1
+_sections_unfolded = [ "Process Material", "Transform", "Z Index" ]
 
 [node name="Confetti2" parent="ConfettiHolder" index="2" instance=ExtResource( 7 )]
 
@@ -117,6 +119,8 @@ visible = false
 position = Vector2( 1018.63, 6.9993 )
 rotation = 2.33069
 scale = Vector2( 3.30898, 3.30898 )
+z_index = 1
+_sections_unfolded = [ "Process Material", "Transform", "Z Index" ]
 
 [node name="TimerLabel" type="Label" parent="." index="10"]
 
