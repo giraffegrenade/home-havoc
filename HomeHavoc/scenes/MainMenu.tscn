@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -36,7 +36,7 @@ group = null
 text = "Play"
 flat = false
 align = 1
-_sections_unfolded = [ "Margin", "Rect" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [node name="Tutorial" type="Button" parent="." index="1"]
 

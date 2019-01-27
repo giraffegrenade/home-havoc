@@ -171,7 +171,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Damping", "Hue Variation", "Initial Velocity", "Radial Accel", "Scale" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 z_index = 1
 input_pickable = false
@@ -346,7 +346,7 @@ autostart = false
 [node name="JetSound" type="AudioStreamPlayer2D" parent="." index="11"]
 
 stream = ExtResource( 4 )
-volume_db = -30.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0

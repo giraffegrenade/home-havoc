@@ -42,7 +42,7 @@ func _on_SpawnTimer_timeout():
 			clone = CANON_BRICK_SCENE.instance()
 		else:
 			clone = SMALL_BRICK_SCENE.instance()
-		
+		clone = CANON_BRICK_SCENE.instance()
 		list_of_blocks.append(clone)
 		$BlockHolder.add_child(clone)
 		
