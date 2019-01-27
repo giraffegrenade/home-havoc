@@ -5,4 +5,5 @@ func _on_BackButton_pressed():
 
 
 func _on_ContinueButton_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
+#	get_tree().change_scene("res://scenes/Main.tscn")
+	pass

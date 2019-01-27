@@ -4,7 +4,7 @@
 [ext_resource path="res://art/tutorial.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=3]
 
-[node name="CanvasLayer" type="CanvasLayer" index="0"]
+[node name="CanvasLayer" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -73,6 +73,7 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Sprite" parent="." index="3" instance=ExtResource( 3 )]
 
+visible = false
 position = Vector2( -2.51685, 298.709 )
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
