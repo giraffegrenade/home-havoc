@@ -1,10 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://art/tutorial.png" type="Texture" id=2]
-[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/Vera.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=4]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 13
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="CanvasLayer" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -63,6 +96,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -70,9 +104,9 @@ group = null
 text = "Back"
 flat = false
 align = 1
-_sections_unfolded = [ "Margin", "Rect" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
-[node name="Sprite" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Sprite" parent="." index="3" instance=ExtResource( 4 )]
 
 visible = false
 
@@ -82,21 +116,23 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 168.0
-margin_top = 92.0
-margin_right = 241.0
-margin_bottom = 106.0
+margin_left = 138.0
+margin_top = 115.0
+margin_right = 253.0
+margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
 text = "Left Player
 WASD Keys"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Instructions2" type="Label" parent="." index="5"]
 
@@ -104,21 +140,23 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 817.0
-margin_top = 99.0
-margin_right = 890.0
-margin_bottom = 113.0
+margin_left = 783.0
+margin_top = 118.0
+margin_right = 905.0
+margin_bottom = 169.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
 text = "Right Player
 Arrow Keys"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Instructions3" type="Label" parent="." index="6"]
 
@@ -136,15 +174,16 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Only one rule: the one who builds the tallest house keeps the land and claims it as their home"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_colors" ]
+_sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Sprite2" parent="." index="7" instance=ExtResource( 3 )]
+[node name="Sprite2" parent="." index="7" instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 

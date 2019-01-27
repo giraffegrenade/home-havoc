@@ -37,4 +37,3 @@ ui_pause_screen=[ Object(InputEventKey,"resource_local_to_scene":false,"resource
 quality/intended_usage/framebuffer_allocation=0
 quality/subsurface_scattering/quality=2
 environment/default_environment="res://default_env.tres"
-quality/dynamic_fonts/use_oversampling=true

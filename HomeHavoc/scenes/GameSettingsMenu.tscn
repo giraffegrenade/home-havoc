@@ -2,9 +2,18 @@
 
 [ext_resource path="res://scenes/GameSettingsMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Vera.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/SpawnRatePanel.gd" type="Script" id=3]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="DynamicFont" id=1]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Button
 
@@ -36,6 +45,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -43,8 +53,8 @@ group = null
 text = "Start"
 flat = false
 align = 1
-script = SubResource( 1 )
-_sections_unfolded = [ "Rect" ]
+script = SubResource( 2 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="BackButton" type="Button" parent="." index="1"]
 
@@ -63,6 +73,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -70,10 +81,10 @@ group = null
 text = "Back"
 flat = false
 align = 1
-script = SubResource( 1 )
-_sections_unfolded = [ "Rect" ]
+script = SubResource( 2 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Sprite" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Sprite" parent="." index="2" instance=ExtResource( 3 )]
 
 [node name="SpawnRatePanel" type="Panel" parent="." index="3"]
 
@@ -397,5 +408,3 @@ max_lines_visible = -1
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
-
-
