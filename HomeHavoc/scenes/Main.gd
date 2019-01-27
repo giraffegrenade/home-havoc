@@ -39,10 +39,10 @@ func _on_SpawnTimer_timeout():
 		elif randnum < 60:
 			clone = WINDOW_BRICK_SCENE.instance()
 		elif randnum < 95:
-			clone = CANON_BRICK_SCENE.instance()
-		else:
 			clone = SMALL_BRICK_SCENE.instance()
-		clone = CANON_BRICK_SCENE.instance()
+		else:
+			clone = CANON_BRICK_SCENE.instance()
+			
 		list_of_blocks.append(clone)
 		$BlockHolder.add_child(clone)
 		
