@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/bottom.png" type="Texture" id=4]
 [ext_resource path="res://art/barrier.png" type="Texture" id=5]
-[ext_resource path="res://art/line.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Line.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://scenes/PauseScreen.gd" type="Script" id=9]
@@ -98,9 +98,7 @@ z_index = -1
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Line" type="Sprite" parent="." index="9"]
-
-texture = ExtResource( 6 )
+[node name="Line" parent="." index="9" instance=ExtResource( 6 )]
 
 [node name="ConfettiHolder" type="Node" parent="." index="10"]
 
