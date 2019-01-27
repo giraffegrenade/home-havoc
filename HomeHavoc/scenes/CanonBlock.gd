@@ -6,4 +6,4 @@ func _on_CanonTimer_timeout():
 	var ball = CANON_BALL_SCENE.instance()
 	ball.position = position
 	get_parent().add_child(ball)
-	ball.launch(Vector2(position.x - 10, position.y))
+	ball.launch(Vector2(cos(rotation), sin(rotation)) * 10)

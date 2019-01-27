@@ -20,7 +20,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 12.1109, 9.47431 )
 
-[node name="Block" type="RigidBody2D"]
+[node name="Block" type="RigidBody2D" index="0"]
 
 position = Vector2( 0, 0.0626736 )
 input_pickable = false
