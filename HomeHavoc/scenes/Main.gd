@@ -42,6 +42,7 @@ func _on_SpawnTimer_timeout():
 			clone = SMALL_BRICK_SCENE.instance()
 		else:
 			clone = CANON_BRICK_SCENE.instance()
+		clone = CANON_BRICK_SCENE.instance()
 			
 		list_of_blocks.append(clone)
 		$BlockHolder.add_child(clone)
@@ -76,13 +77,13 @@ func _on_GameTimer_timeout():
 	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
 		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$ConfettiHolder/Confetti2.show()
-#		$Line.position.x = tallest_block_position_P1.x
-#		$Line.position.y = getMaxHeightBlock(tallest_block_P1)
+		$Line.position.x = tallest_block_position_P1.x
+		$Line.position.y = getMaxHeightBlock(tallest_block_P1)
 	elif tallest_block_position_P2.y < tallest_block_position_P1.y and tallest_block_P2 != null:
 		tallest_block_P2.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$ConfettiHolder/Confetti.show()
-#		$Line.position.x = tallest_block_position_P2.x
-#		$Line.position.y = getMaxHeightBlock(tallest_block_P2)
+		$Line.position.x = tallest_block_position_P2.x
+		$Line.position.y = getMaxHeightBlock(tallest_block_P2)
 	else:
 		$GameEndLabel.show()
 		$GameEndLabel.text = "Draw!"

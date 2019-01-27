@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -71,14 +71,14 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 0.3
 one_shot = false
 autostart = true
 
 [node name="GameTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
-wait_time = 90.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -98,30 +98,30 @@ z_index = -1
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="ConfettiHolder" type="Node" parent="." index="9"]
+[node name="Line" type="Sprite" parent="." index="9"]
+
+texture = ExtResource( 6 )
+
+[node name="ConfettiHolder" type="Node" parent="." index="10"]
 
 pause_mode = 2
 _sections_unfolded = [ "Pause" ]
 
-[node name="Line" type="Sprite" parent="ConfettiHolder" index="0"]
-
-texture = ExtResource( 6 )
-
-[node name="Confetti" parent="ConfettiHolder" index="1" instance=ExtResource( 7 )]
+[node name="Confetti" parent="ConfettiHolder" index="0" instance=ExtResource( 7 )]
 
 visible = false
 position = Vector2( 6.99875, 8.1073 )
 rotation = 0.810548
 scale = Vector2( 3.30898, 3.30898 )
 
-[node name="Confetti2" parent="ConfettiHolder" index="2" instance=ExtResource( 7 )]
+[node name="Confetti2" parent="ConfettiHolder" index="1" instance=ExtResource( 7 )]
 
 visible = false
 position = Vector2( 1018.63, 6.9993 )
 rotation = 2.33069
 scale = Vector2( 3.30898, 3.30898 )
 
-[node name="TimerLabel" type="Label" parent="." index="10"]
+[node name="TimerLabel" type="Label" parent="." index="11"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -144,7 +144,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="GameEndLabel" type="Label" parent="." index="11"]
+[node name="GameEndLabel" type="Label" parent="." index="12"]
 
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
@@ -167,7 +167,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="ExitGameButton" type="Button" parent="." index="12"]
+[node name="ExitGameButton" type="Button" parent="." index="13"]
 
 pause_mode = 2
 visible = false
@@ -195,7 +195,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Pause", "Rect" ]
 
-[node name="RestartButton" type="Button" parent="." index="13"]
+[node name="RestartButton" type="Button" parent="." index="14"]
 
 pause_mode = 2
 visible = false
@@ -223,7 +223,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
-[node name="PauseMenu" type="CanvasLayer" parent="." index="14"]
+[node name="PauseMenu" type="CanvasLayer" parent="." index="15"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -353,7 +353,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Scores" type="Node" parent="." index="15"]
+[node name="Scores" type="Node" parent="." index="16"]
 
 [node name="LeftScoreLabel" type="Label" parent="Scores" index="0"]
 
