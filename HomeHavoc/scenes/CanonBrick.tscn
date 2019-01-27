@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/CanonBlock.gd" type="Script" id=1]
 [ext_resource path="res://art/Canon_1.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 12.1109, 9.47431 )
@@ -41,7 +41,7 @@ texture = ExtResource( 2 )
 
 position = Vector2( -1.25344, 6.89145 )
 scale = Vector2( 1, 0.973227 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="BlockArea" type="Area2D" parent="." index="2"]
 
@@ -58,7 +58,7 @@ _sections_unfolded = [ "Collision", "Pickable" ]
 
 position = Vector2( -1.25344, 6.89145 )
 scale = Vector2( 1, 0.973227 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CanonTimer" type="Timer" parent="." index="3"]
 
