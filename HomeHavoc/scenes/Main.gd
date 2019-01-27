@@ -3,6 +3,7 @@ extends Node
 var list_of_blocks = []
 var spawn_blocks = true
 var screensize
+var bottom_size
 
 const SMALL_BRICK_SCENE = preload("res://scenes/BottomBrick.tscn")
 const LARGE_BRICK_SCENE = preload("res://scenes/LargeBrick.tscn")
@@ -11,10 +12,12 @@ const DOOR_BRICK_SCENE = preload("res://scenes/DoorBrick.tscn")
 const WINDOW_BRICK_SCENE = preload("res://scenes/WindowBrick.tscn")
 const CANON_BRICK_SCENE = preload("res://scenes/CanonBrick.tscn")
 
+
 func _ready():
 	screensize = get_viewport().size
 	$Barriers/P2Barrier.position = Vector2(screensize.x / 3, screensize.y / 2)
 	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3, screensize.y / 2)
+	bottom_size = $Bottom.texture.get_size().y
 
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
@@ -57,8 +60,8 @@ func _on_GameTimer_timeout():
 		spawn_blocks = false
 	var tallest_block_P1
 	var tallest_block_P2
-	var tallest_block_position_P1 = Vector2(0, screensize.y)
-	var tallest_block_position_P2 = Vector2(0, screensize.y)
+	var tallest_block_position_P1 = Vector2(0, screensize.y-bottom_size)
+	var tallest_block_position_P2 = Vector2(0, screensize.y-bottom_size)
 	for block in list_of_blocks:
 		print(block.rotation)
 		if len(block.get_colliding_bodies()) >= 1:
@@ -87,6 +90,15 @@ func _on_GameTimer_timeout():
 		
 	$ExitGameButton.show()
 	$RestartButton.show()
+	$TimerLabel.hide()
+	display_scores(tallest_block_position_P2.y, tallest_block_position_P1.y)
+	
+func actual_score_from_pixels(raw_score):
+	return int(round((screensize.y - bottom_size) - raw_score)+1)
+	
+func display_scores(left_score, right_score):
+	$Scores/LeftScoreLabel.set_text(str(actual_score_from_pixels(left_score)))
+	$Scores/RightScoreLabel.set_text(str(actual_score_from_pixels(right_score)))
 
 func _on_RestartButton_pressed():
 	get_tree().paused = false
