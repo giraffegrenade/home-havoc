@@ -22,4 +22,4 @@ func _on_CanonTimer_timeout():
 			rot_offset = PI
 			ball.position = position + Vector2(cos(rotation + rot_offset), sin(rotation + rot_offset)) * 12
 		get_parent().add_child(ball)
-		ball.launch(Vector2(cos(rotation), sin(rotation)))
+		ball.launch(Vector2(cos(rotation + rot_offset), sin(rotation + rot_offset)))

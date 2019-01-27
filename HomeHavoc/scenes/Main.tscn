@@ -71,14 +71,14 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 2.0
 one_shot = false
 autostart = true
 
 [node name="GameTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
-wait_time = 20.0
+wait_time = 90.0
 one_shot = true
 autostart = true
 
