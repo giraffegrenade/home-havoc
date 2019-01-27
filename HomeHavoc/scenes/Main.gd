@@ -24,8 +24,8 @@ func _ready():
 	$Music.play()
 	
 	screensize = get_viewport().size
-	$Barriers/P2Barrier.position = Vector2(screensize.x / 3 - 20, screensize.y / 2)
-	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3 + 20, screensize.y / 2)
+	$Barriers/P2Barrier.position = Vector2(screensize.x / 3, screensize.y / 2)
+	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3, screensize.y / 2)
 	bottom_size = $Bottom.texture.get_size().y
 	
 	var config = ConfigFile.new()
