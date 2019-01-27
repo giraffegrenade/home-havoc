@@ -223,7 +223,15 @@ flat = false
 align = 1
 _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
-[node name="PauseScreen" type="PopupPanel" parent="." index="14"]
+[node name="PauseMenu" type="CanvasLayer" parent="." index="14"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="PauseScreen" type="PopupPanel" parent="PauseMenu" index="0"]
 
 pause_mode = 2
 visible = false
@@ -243,7 +251,7 @@ popup_exclusive = false
 script = ExtResource( 9 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="MainMenuButton" type="Button" parent="PauseScreen" index="0"]
+[node name="MainMenuButton" type="Button" parent="PauseMenu/PauseScreen" index="0"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -269,7 +277,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="RestartButton" type="Button" parent="PauseScreen" index="1"]
+[node name="RestartButton" type="Button" parent="PauseMenu/PauseScreen" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -295,7 +303,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ResumeButton" type="Button" parent="PauseScreen" index="2"]
+[node name="ResumeButton" type="Button" parent="PauseMenu/PauseScreen" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -321,7 +329,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="PauseScreenLabel" type="Label" parent="PauseScreen" index="3"]
+[node name="PauseScreenLabel" type="Label" parent="PauseMenu/PauseScreen" index="3"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -400,10 +408,10 @@ _sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 
-[connection signal="pressed" from="PauseScreen/MainMenuButton" to="." method="_on_ExitGameButton_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseScreen/MainMenuButton" to="." method="_on_ExitGameButton_pressed"]
 
-[connection signal="pressed" from="PauseScreen/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseScreen/RestartButton" to="." method="_on_RestartButton_pressed"]
 
-[connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseScreen/ResumeButton" to="PauseMenu/PauseScreen" method="_on_ResumeButton_pressed"]
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/clouds and sky.png" type="Texture" id=1]
 
-[node name="Sprite" type="Sprite" index="0"]
+[node name="Sprite" type="Sprite"]
 
 position = Vector2( -2.51685, 298.709 )
 scale = Vector2( 0.535126, 0.558155 )
@@ -10,5 +10,8 @@ z_index = -2
 texture = ExtResource( 1 )
 offset = Vector2( 960, 0 )
 _sections_unfolded = [ "Offset", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 

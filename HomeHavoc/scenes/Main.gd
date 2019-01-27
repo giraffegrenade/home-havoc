@@ -22,7 +22,7 @@ func _ready():
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
 	
-	$PauseScreen.checkPauseScreen()
+	$PauseMenu/PauseScreen.checkPauseScreen()
 
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
