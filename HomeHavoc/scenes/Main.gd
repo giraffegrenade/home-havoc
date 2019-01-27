@@ -102,7 +102,7 @@ func _on_GameTimer_timeout():
 	var tallest_block_position_P2 = Vector2(0, screensize.y-bottom_size)
 	for block in list_of_blocks:
 		var line = LINE_SCENE.instance()
-		add_child(line)
+#		add_child(line)
 		line.position.x = block.position.x
 		line.position.y = getMaxHeightBlock(block)
 		if len(block.get_colliding_bodies()) >= 1:
