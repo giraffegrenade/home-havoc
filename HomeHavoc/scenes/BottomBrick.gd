@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var connected_to_drone
+var inside_another_body = false
 export (int) var block_offset = 30
 export (Vector2) var dimensions = Vector2(32, 32)
 

@@ -72,8 +72,7 @@ func _on_GameTimer_timeout():
 			elif block.position.x < screensize.x / 3 and getMaxHeightBlock(block) <= tallest_block_position_P2.y:
 				tallest_block_position_P2 = block.position
 				tallest_block_P2 = block
-	
-	$GameEndLabel.show()
+				
 	if tallest_block_position_P1.y < tallest_block_position_P2.y and tallest_block_P1 != null:
 		tallest_block_P1.get_node("BlockSprite").modulate = Color(10,0,0,10)
 		$ConfettiHolder/Confetti2.show()
@@ -85,6 +84,7 @@ func _on_GameTimer_timeout():
 #		$Line.position.x = tallest_block_position_P2.x
 #		$Line.position.y = getMaxHeightBlock(tallest_block_P2)
 	else:
+		$GameEndLabel.show()
 		$GameEndLabel.text = "Draw!"
 		
 	$ExitGameButton.show()

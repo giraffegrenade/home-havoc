@@ -110,6 +110,8 @@ visible = false
 position = Vector2( 6.99875, 8.1073 )
 rotation = 0.810548
 scale = Vector2( 3.30898, 3.30898 )
+z_index = 1
+_sections_unfolded = [ "Process Material", "Transform", "Z Index" ]
 
 [node name="Confetti2" parent="ConfettiHolder" index="2" instance=ExtResource( 7 )]
 
@@ -117,6 +119,8 @@ visible = false
 position = Vector2( 1018.63, 6.9993 )
 rotation = 2.33069
 scale = Vector2( 3.30898, 3.30898 )
+z_index = 1
+_sections_unfolded = [ "Process Material", "Transform", "Z Index" ]
 
 [node name="TimerLabel" type="Label" parent="." index="10"]
 
@@ -143,15 +147,16 @@ _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="GameEndLabel" type="Label" parent="." index="11"]
 
+visible = false
 modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 380.0
-margin_top = 243.0
-margin_right = 652.0
-margin_bottom = 364.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -60.5
+margin_right = 136.0
+margin_bottom = 60.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -159,6 +164,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
+text = "Draw!"
+align = 1
+valign = 1
+autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
