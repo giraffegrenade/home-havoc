@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/bottom.png" type="Texture" id=4]
-[ext_resource path="res://art/barrier.png" type="Texture" id=5]
+[ext_resource path="res://art/barrier2.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Line.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=8]
@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -39,7 +39,7 @@ player_num = 1
 
 [node name="P2" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 144.643, 276.837 )
+position = Vector2( 144.818, 294.887 )
 z_index = 0
 player_num = 2
 
