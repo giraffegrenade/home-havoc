@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -78,7 +78,7 @@ autostart = true
 [node name="GameTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
-wait_time = 30.0
+wait_time = 90.0
 one_shot = true
 autostart = true
 
