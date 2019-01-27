@@ -20,6 +20,9 @@ var t = 0
 
 
 func _ready():
+	# Start playing music
+	$Music.play()
+	
 	screensize = get_viewport().size
 	$Barriers/P2Barrier.position = Vector2(screensize.x / 3 - 20, screensize.y / 2)
 	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3 + 20, screensize.y / 2)
@@ -141,6 +144,7 @@ func display_scores(left_score, right_score):
 	$Scores/RightScoreLabel.set_text(str(actual_score_from_pixels(right_score)))
 
 func _on_RestartButton_pressed():
+	$Music.stop()
 	get_tree().paused = false
 	get_tree().change_scene("res://scenes/Main.tscn")
 

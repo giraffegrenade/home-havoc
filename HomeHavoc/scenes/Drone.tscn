@@ -6,6 +6,8 @@
 [ext_resource path="res://sounds/jet_sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pickup.wav" type="AudioStream" id=5]
 
+
+
 [sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.112426, 0.751479 )
