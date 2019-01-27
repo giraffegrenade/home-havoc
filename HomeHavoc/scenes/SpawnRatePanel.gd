@@ -15,9 +15,18 @@ func _ready():
 	add_rate_options($Planks)
 	add_rate_options($Turrets)
 	
+	$Overall.add_item("Very slow")
+	$Overall.add_item("Slow")
+	$Overall.add_item("Normal")
+	$Overall.add_item("Fast")
+	$Overall.add_item("Very Fast")
+	$Overall.select(2)
+	
 	$SmallBricks.select(3)
 	$Glass.select(2)
 	$LargeBricks.select(1)
 	$Doors.select(1)
 	$Planks.select(2)
 	$Turrets.select(0)
+	
+	

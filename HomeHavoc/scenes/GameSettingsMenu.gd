@@ -10,6 +10,7 @@ func _on_StartButton_pressed():
 	config.set_value("Spawn Rates", "Doors", getRateValue($SpawnRatePanel/Doors.selected))
 	config.set_value("Spawn Rates", "Planks", getRateValue($SpawnRatePanel/Planks.selected))
 	config.set_value("Spawn Rates", "Turrets", getRateValue($SpawnRatePanel/Turrets.selected))
+	config.set_value("Spawn Rates", "Overall", getOverallValue($SpawnRatePanel/Overall.selected))
 	config.save("config.cfg")
 	
 	get_tree().change_scene("res://scenes/Main.tscn")
@@ -25,6 +26,19 @@ func getRateValue(index):
 		return 0.25
 	if index == 4:
 		return 0.6
+	return -1
+	
+func getOverallValue(index):
+	if index == 0:
+		return 30
+	if index == 1:
+		return 20
+	if index == 2:
+		return 10
+	if index == 3:
+		return 5
+	if index == 4:
+		return 1
 	return -1
 
 func _on_BackButton_pressed():

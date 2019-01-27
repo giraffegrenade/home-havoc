@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -71,7 +71,7 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.1
 one_shot = false
 autostart = true
 

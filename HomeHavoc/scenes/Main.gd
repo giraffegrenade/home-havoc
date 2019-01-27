@@ -15,6 +15,8 @@ const CANON_BRICK_SCENE = preload("res://scenes/CanonBrick.tscn")
 const LINE_SCENE = preload("res://scenes/Line.tscn")
 
 var rates
+var spawn_period
+var t = 0
 
 
 func _ready():
@@ -35,6 +37,7 @@ func _ready():
 			Turrets = config.get_value("Spawn Rates", "Turrets", -1),
 		}
 		print(rates)
+		spawn_period = config.get_value("Spawn Rates", "Overall")
 	else:
 		print("Error loading config file")
 
@@ -44,7 +47,8 @@ func _process(delta):
 	$PauseMenu/PauseScreen.checkPauseScreen()
 
 func _on_SpawnTimer_timeout():
-	if spawn_blocks:
+	t += 1
+	if spawn_blocks and t % spawn_period == 0:
 		# Choose a random number between 1 and 100
 #		var randnum = float(randi()%101) / 100
 		
