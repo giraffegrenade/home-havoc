@@ -93,8 +93,10 @@ func _on_GameTimer_timeout():
 	$TimerLabel.hide()
 	display_scores(tallest_block_position_P2.y, tallest_block_position_P1.y)
 	
+	get_tree().paused = true
+	
 func actual_score_from_pixels(raw_score):
-	return int(round((screensize.y - bottom_size) - raw_score)+1)
+	return int(ceil((screensize.y - bottom_size) - raw_score))
 	
 func display_scores(left_score, right_score):
 	$Scores/LeftScoreLabel.set_text(str(actual_score_from_pixels(left_score)))

@@ -166,6 +166,7 @@ _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="ExitGameButton" type="Button" parent="." index="12"]
 
+pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -189,10 +190,11 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="RestartButton" type="Button" parent="." index="13"]
 
+pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -216,7 +218,7 @@ group = null
 text = "Restart"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
 [node name="PauseScreen" type="PopupPanel" parent="." index="14"]
 
