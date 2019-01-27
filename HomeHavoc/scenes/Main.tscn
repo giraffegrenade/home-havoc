@@ -2,8 +2,8 @@
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/bottom.png" type="Texture" id=3]
-[ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/bottom.png" type="Texture" id=4]
 [ext_resource path="res://art/barrier.png" type="Texture" id=5]
 [ext_resource path="res://art/line.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
@@ -31,26 +31,26 @@ script = ExtResource( 1 )
 
 position = Vector2( -1.40881, 298.709 )
 
-[node name="Bottom" type="Sprite" parent="." index="1"]
-
-scale = Vector2( 1.02378, 1 )
-texture = ExtResource( 3 )
-offset = Vector2( 500, 575 )
-_sections_unfolded = [ "Offset" ]
-
-[node name="P1" parent="." index="2" instance=ExtResource( 4 )]
+[node name="P1" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 888.895, 278.917 )
 z_index = 0
 player_num = 1
 
-[node name="P2" parent="." index="3" instance=ExtResource( 4 )]
+[node name="P2" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 144.643, 276.837 )
 z_index = 0
 player_num = 2
 
-[node name="BlockHolder" type="Node" parent="." index="4"]
+[node name="BlockHolder" type="Node" parent="." index="3"]
+
+[node name="Bottom" type="Sprite" parent="." index="4"]
+
+scale = Vector2( 1.02378, 1 )
+texture = ExtResource( 4 )
+offset = Vector2( 500, 575 )
+_sections_unfolded = [ "Offset" ]
 
 [node name="BottomStaticBody" type="StaticBody2D" parent="." index="5"]
 
@@ -64,7 +64,8 @@ bounce = 0.0
 
 [node name="BottomCollision" type="CollisionShape2D" parent="BottomStaticBody" index="0"]
 
-position = Vector2( 512, 574.44 )
+position = Vector2( 512, 592.213 )
+scale = Vector2( 1, 1.63451 )
 shape = SubResource( 1 )
 
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
@@ -220,6 +221,7 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 [node name="PauseScreen" type="PopupPanel" parent="." index="14"]
 
 pause_mode = 2
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
