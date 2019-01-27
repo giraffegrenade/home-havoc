@@ -2,14 +2,17 @@ extends CanvasLayer
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
-	
 	#save options
 	var config = ConfigFile.new()
-	var err = config.load("config")
-	if err == OK:
-		config.set_value(getRateValue($SpawnRatePanel/SmallBricks.get_selected_id()))
-	config.save("config")
+	config.set_value("Spawn Rates", "Small Bricks", getRateValue($SpawnRatePanel/SmallBricks.get_selected_id()))
+	config.set_value("Spawn Rates", "Glass", getRateValue($SpawnRatePanel/Glass.get_selected_id()))
+	config.set_value("Spawn Rates", "Large Bricks", getRateValue($SpawnRatePanel/LargeBricks.get_selected_id()))
+	config.set_value("Spawn Rates", "Doors", getRateValue($SpawnRatePanel/Doors.get_selected_id()))
+	config.set_value("Spawn Rates", "Planks", getRateValue($SpawnRatePanel/Planks.get_selected_id()))
+	config.set_value("Spawn Rates", "Turrets", getRateValue($SpawnRatePanel/Turrets.get_selected_id()))
+	config.save("config.cfg")
+	
+	get_tree().change_scene("res://scenes/Main.tscn")
 
 func getRateValue(index):
 	if index == 0:

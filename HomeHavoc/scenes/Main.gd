@@ -14,12 +14,29 @@ const CANON_BRICK_SCENE = preload("res://scenes/CanonBrick.tscn")
 
 const LINE_SCENE = preload("res://scenes/Line.tscn")
 
+var rates
+
 
 func _ready():
 	screensize = get_viewport().size
 	$Barriers/P2Barrier.position = Vector2(screensize.x / 3, screensize.y / 2)
 	$Barriers/P1Barrier.position = Vector2(screensize.x * 2 / 3, screensize.y / 2)
 	bottom_size = $Bottom.texture.get_size().y
+	
+	var config = ConfigFile.new()
+	var err = config.load("config.cfg")
+	if err == OK: # if not, something went wrong with the file loading
+		rates = {
+			SmallBricks = config.get_value("Spawn Rates", "Small Bricks", 0),
+			Glass = config.get_value("Spawn Rates", "Glass", 0),
+			LargeBricks = config.get_value("Spawn Rates", "Large Bricks", 0),
+			Doors = config.get_value("Spawn Rates", "Doors", 0),
+			Planks = config.get_value("Spawn Rates", "Planks", 0),
+			Turrets = config.get_value("Spawn Rates", "Turrets", 0),
+		}
+		print(rates)
+	else:
+		print("Error loading config file")
 
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
@@ -29,20 +46,20 @@ func _process(delta):
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
 		# Choose a random number between 1 and 100
-		var randnum = randi()%101+1
+#		var randnum = (randi()%101) / 100
 		
 		var clone
-		if randnum < 10:
+		if (randi()%101) / 100 < rates["LargeBricks"]:
 			clone = LARGE_BRICK_SCENE.instance()
-		elif randnum < 20:
+		elif (randi()%101) / 100 < rates["Planks"]:
 			clone = LONG_BRICK_SCENE.instance()
-		elif randnum < 40:
+		elif (randi()%101) / 100 < rates["Doors"]:
 			clone = DOOR_BRICK_SCENE.instance()
-		elif randnum < 60:
+		elif (randi()%101) / 100 < rates["Glass"]:
 			clone = WINDOW_BRICK_SCENE.instance()
-		elif randnum < 95:
+		elif (randi()%101) / 100 < rates["SmallBricks"]:
 			clone = SMALL_BRICK_SCENE.instance()
-		else:
+		elif (randi()%101) / 100 < rates["Turrets"]:
 			clone = CANON_BRICK_SCENE.instance()
 			
 		list_of_blocks.append(clone)

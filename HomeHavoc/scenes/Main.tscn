@@ -71,7 +71,7 @@ shape = SubResource( 1 )
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 1.0
 one_shot = false
 autostart = true
 
