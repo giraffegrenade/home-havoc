@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/bottom.png" type="Texture" id=3]
-[ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://art/barrier.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/bottom.png" type="Texture" id=4]
+[ext_resource path="res://art/barrier.png" type="Texture" id=5]
+[ext_resource path="res://art/line.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=7]
-[ext_resource path="res://art/line.png" type="Texture" id=8]
+[ext_resource path="res://fonts/Jellee-Roman.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/PauseScreen.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,7 +20,7 @@ extents = Vector2( 512.094, 25.0112 )
 size = 60
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 5 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Node" type="Node" index="0"]
@@ -30,24 +31,28 @@ script = ExtResource( 1 )
 
 position = Vector2( -1.40881, 298.709 )
 
-[node name="Bottom" type="Sprite" parent="." index="1"]
+[node name="P1" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 888.895, 278.917 )
+z_index = 0
+player_num = 1
+
+[node name="P2" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 144.643, 276.837 )
+z_index = 0
+player_num = 2
+
+[node name="BlockHolder" type="Node" parent="." index="3"]
+
+[node name="Bottom" type="Sprite" parent="." index="4"]
 
 scale = Vector2( 1.02378, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 500, 575 )
 _sections_unfolded = [ "Offset" ]
 
-[node name="P1" parent="." index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 888.895, 278.917 )
-player_num = 1
-
-[node name="P2" parent="." index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 144.643, 276.837 )
-player_num = 2
-
-[node name="BottomStaticBody" type="StaticBody2D" parent="." index="4"]
+[node name="BottomStaticBody" type="StaticBody2D" parent="." index="5"]
 
 input_pickable = false
 collision_layer = 1
@@ -59,24 +64,61 @@ bounce = 0.0
 
 [node name="BottomCollision" type="CollisionShape2D" parent="BottomStaticBody" index="0"]
 
-position = Vector2( 512, 574.44 )
+position = Vector2( 512, 592.213 )
+scale = Vector2( 1, 1.63451 )
 shape = SubResource( 1 )
 
-[node name="SpawnTimer" type="Timer" parent="." index="5"]
+[node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 0.5
+wait_time = 3.0
 one_shot = false
 autostart = true
 
-[node name="GameTimer" type="Timer" parent="." index="6"]
+[node name="GameTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="TimerLabel" type="Label" parent="." index="7"]
+[node name="Barriers" type="Node" parent="." index="8"]
+
+[node name="P2Barrier" type="Sprite" parent="Barriers" index="0"]
+
+position = Vector2( 250.415, 299.169 )
+z_index = -1
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="P1Barrier" type="Sprite" parent="Barriers" index="1"]
+
+position = Vector2( 771.191, 298.061 )
+z_index = -1
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="ConfettiHolder" type="Node" parent="." index="9"]
+
+[node name="Line" type="Sprite" parent="ConfettiHolder" index="0"]
+
+texture = ExtResource( 6 )
+
+[node name="Confetti" parent="ConfettiHolder" index="1" instance=ExtResource( 7 )]
+
+visible = false
+position = Vector2( 6.99875, 8.1073 )
+rotation = 0.810548
+scale = Vector2( 3.30898, 3.30898 )
+
+[node name="Confetti2" parent="ConfettiHolder" index="2" instance=ExtResource( 7 )]
+
+visible = false
+position = Vector2( 1018.63, 6.9993 )
+rotation = 2.33069
+scale = Vector2( 3.30898, 3.30898 )
+
+[node name="TimerLabel" type="Label" parent="." index="10"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -99,23 +141,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="Barriers" type="Node" parent="." index="8"]
-
-[node name="P2Barrier" type="Sprite" parent="Barriers" index="0"]
-
-position = Vector2( 250.415, 299.169 )
-z_index = -1
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="P1Barrier" type="Sprite" parent="Barriers" index="1"]
-
-position = Vector2( 771.191, 298.061 )
-z_index = -1
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="GameEndLabel" type="Label" parent="." index="9"]
+[node name="GameEndLabel" type="Label" parent="." index="11"]
 
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
@@ -138,8 +164,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="ExitGameButton" type="Button" parent="." index="10"]
+[node name="ExitGameButton" type="Button" parent="." index="12"]
 
+pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -163,10 +190,11 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
-[node name="RestartButton" type="Button" parent="." index="11"]
+[node name="RestartButton" type="Button" parent="." index="13"]
 
+pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -190,27 +218,176 @@ group = null
 text = "Restart"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
-[node name="ConfettiHolder" type="Node" parent="." index="12"]
+[node name="PauseScreen" type="PopupPanel" parent="." index="14"]
 
-[node name="Confetti" parent="ConfettiHolder" index="0" instance=ExtResource( 7 )]
-
+pause_mode = 2
 visible = false
-position = Vector2( 6.99875, 8.1073 )
-rotation = 0.810548
-scale = Vector2( 3.30898, 3.30898 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1000.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 9 )
+_sections_unfolded = [ "Pause" ]
 
-[node name="Confetti2" parent="ConfettiHolder" index="1" instance=ExtResource( 7 )]
+[node name="MainMenuButton" type="Button" parent="PauseScreen" index="0"]
 
-visible = false
-position = Vector2( 1018.63, 6.9993 )
-rotation = 2.33069
-scale = Vector2( 3.30898, 3.30898 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -150.0
+margin_right = 100.0
+margin_bottom = -100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Main Menu"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Line" type="Sprite" parent="." index="13"]
+[node name="RestartButton" type="Button" parent="PauseScreen" index="1"]
 
-texture = ExtResource( 8 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -25.0
+margin_right = 100.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Restart"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="ResumeButton" type="Button" parent="PauseScreen" index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -100.0
+margin_top = 100.0
+margin_right = 100.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Resume"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="PauseScreenLabel" type="Label" parent="PauseScreen" index="3"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -47.0
+margin_top = 23.0
+margin_right = -1.0
+margin_bottom = 37.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Paused"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Scores" type="Node" parent="." index="15"]
+
+[node name="LeftScoreLabel" type="Label" parent="Scores" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 65.0
+margin_bottom = 39.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="RightScoreLabel" type="Label" parent="Scores" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -142.0
+margin_top = 25.0
+margin_right = -102.0
+margin_bottom = 39.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
@@ -219,5 +396,11 @@ texture = ExtResource( 8 )
 [connection signal="pressed" from="ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+
+[connection signal="pressed" from="PauseScreen/MainMenuButton" to="." method="_on_ExitGameButton_pressed"]
+
+[connection signal="pressed" from="PauseScreen/RestartButton" to="." method="_on_RestartButton_pressed"]
+
+[connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_ResumeButton_pressed"]
 
 
