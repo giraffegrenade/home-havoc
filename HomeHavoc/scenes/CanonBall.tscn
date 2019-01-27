@@ -6,9 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 16.4521
+radius = 8.32253
 
-[node name="CanonBall" type="RigidBody2D" index="0"]
+[node name="CanonBall" type="RigidBody2D"]
 
 position = Vector2( 0.0944672, 0 )
 input_pickable = false
@@ -33,7 +33,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
