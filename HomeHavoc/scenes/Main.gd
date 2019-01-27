@@ -19,8 +19,7 @@ func _ready():
 func _process(delta):
 	$TimerLabel.text = str(int($GameTimer.get_time_left()))
 	
-	if Input.is_action_just_pressed("ui_pause_screen"):
-		pass
+	$PauseScreen.checkPauseScreen()
 
 func _on_SpawnTimer_timeout():
 	if spawn_blocks:
@@ -90,7 +89,10 @@ func _on_GameTimer_timeout():
 	$RestartButton.show()
 
 func _on_RestartButton_pressed():
+	get_tree().paused = false
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func _on_ExitGameButton_pressed():
+	get_tree().paused = false
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+
