@@ -15,7 +15,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 12
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -23,7 +23,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 12
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -37,7 +37,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -116,10 +116,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 168.0
-margin_top = 92.0
-margin_right = 241.0
-margin_bottom = 106.0
+margin_left = 138.0
+margin_top = 115.0
+margin_right = 253.0
+margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -140,10 +140,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 817.0
-margin_top = 99.0
-margin_right = 890.0
-margin_bottom = 113.0
+margin_left = 783.0
+margin_top = 118.0
+margin_right = 905.0
+margin_bottom = 169.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
