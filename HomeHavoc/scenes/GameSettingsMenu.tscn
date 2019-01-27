@@ -9,7 +9,7 @@ script/source = "extends Button
 
 "
 
-[node name="GameSettingsMenu" type="CanvasLayer" index="0"]
+[node name="GameSettingsMenu" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
