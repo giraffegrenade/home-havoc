@@ -12,6 +12,8 @@ const DOOR_BRICK_SCENE = preload("res://scenes/DoorBrick.tscn")
 const WINDOW_BRICK_SCENE = preload("res://scenes/WindowBrick.tscn")
 const CANON_BRICK_SCENE = preload("res://scenes/CanonBrick.tscn")
 
+const LINE_SCENE = preload("res://scenes/Line.tscn")
+
 
 func _ready():
 	screensize = get_viewport().size
@@ -63,6 +65,10 @@ func _on_GameTimer_timeout():
 	var tallest_block_position_P1 = Vector2(0, screensize.y-bottom_size)
 	var tallest_block_position_P2 = Vector2(0, screensize.y-bottom_size)
 	for block in list_of_blocks:
+		var line = LINE_SCENE.instance()
+		add_child(line)
+		line.position.x = block.position.x
+		line.position.y = getMaxHeightBlock(block)
 		if len(block.get_colliding_bodies()) >= 1:
 			var player
 			block.get_node("BlockSprite").modulate = Color(100,100,100,100) # ///

@@ -61,8 +61,4 @@ _sections_unfolded = [ "Collision", "Pickable" ]
 visible = false
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="BlockArea" to="." method="_on_BlockArea_body_entered"]
-
-[connection signal="body_exited" from="BlockArea" to="." method="_on_BlockArea_body_exited"]
-
 
