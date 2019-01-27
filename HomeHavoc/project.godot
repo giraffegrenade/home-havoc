@@ -12,6 +12,7 @@ config_version=3
 
 config/name="HomeHavoc"
 run/main_scene="res://scenes/MainMenu.tscn"
+boot_splash/image="res://splashscreen.PNG"
 config/icon="res://icon.png"
 
 [display]
