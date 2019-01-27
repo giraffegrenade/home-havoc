@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 8.32253
 
-[node name="CanonBall" type="RigidBody2D"]
+[node name="CanonBall" type="RigidBody2D" index="0"]
 
 position = Vector2( 0.0944672, 0 )
 input_pickable = false
