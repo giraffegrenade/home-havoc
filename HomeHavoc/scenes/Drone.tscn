@@ -171,7 +171,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Damping", "Hue Variation", "Initial Velocity", "Radial Accel", "Scale" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 z_index = 1
 input_pickable = false
@@ -259,14 +259,16 @@ _sections_unfolded = [ "Process Material", "Time", "Transform" ]
 [node name="P1" type="Sprite" parent="." index="3"]
 
 scale = Vector2( 0.4, 0.4 )
+z_index = 1
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="P2" type="Sprite" parent="." index="4"]
 
 scale = Vector2( 0.4, 0.4 )
+z_index = 1
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="ShipCollision" type="CollisionShape2D" parent="." index="5"]
 
@@ -344,7 +346,7 @@ autostart = false
 [node name="JetSound" type="AudioStreamPlayer2D" parent="." index="11"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = -30.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
